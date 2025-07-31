@@ -1102,7 +1102,7 @@
                 const vihara = document.getElementById('vihara-input').value;
                 const gender = genderMale.checked ? 'Pria' : 'Wanita';
                 const attendanceDate = document.getElementById('attendance-date').value;
-                const activity = activitySelect.value || 'Tidak ditentukan';
+                const activity = activitySelect.value || '-';
                 let status = '';
                 let statusClass = '';
                 
@@ -1905,7 +1905,6 @@ document.getElementById("export-btn").addEventListener("click", function () {
         "Vihara": item.vihara || "-",
         "Gender": item.gender,
         "Tanggal": item.date,
-        "Aktivitas": item.activity,
         "Status": item.status.replace(/✅|❌|📝/, "").trim(),
         "Catatan": item.notes || "-"
     }));
