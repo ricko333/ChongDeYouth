@@ -2016,14 +2016,14 @@ function updateAttendanceCounts() {
     document.getElementById('total-absent').textContent = tidakHadir;
     document.getElementById('total-excused').textContent = izin;
 }</script>
-
-window.deleteAttendance = function(index) {
-    if (confirm(\"Yakin ingin menghapus data ini?\")) {
+<script>
+    window.deleteAttendance = function(index) {
+      if (confirm("Yakin ingin menghapus data ini?")) {
         attendanceData.splice(index, 1);
         updateAttendanceTable();
         updateAttendanceCounts();
+      }
     }
-};
-
+  </script>
 </body>
 </html>
