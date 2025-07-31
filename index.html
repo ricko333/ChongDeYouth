@@ -466,14 +466,6 @@
 </div>
 </div>
 </div>
-<!-- Notes Section -->
-<div class="bg-white rounded-xl shadow-md p-6 mb-6">
-<h3 class="text-lg font-semibold text-gray-800 mb-4">Catatan Kehadiran</h3>
-<div class="space-y-4" id="notes-container">
-<!-- Empty state -->
-<div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg text-gray-500">
-                        Belum ada catatan kehadiran.
-                    </div>
 </div>
 </div>
 </div>
@@ -659,8 +651,16 @@
 </div>
 <!-- Ilustrasi -->
 <div class="bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl shadow-md p-6 text-white">
-<h3 class="text-lg font-semibold mb-4">Semangat Kebersamaan!</h3>
-<p class="text-sm mb-4">Kehadiran Anda sangat berarti bagi komunitas kita. Mari terus berpartisipasi dalam setiap kegiatan!</p>
+<h3 class="text-lg font-semibold mb-4">VALUE (NILAI) PELAJAR CHONG DE</h3>
+<p class="text-sm mb-4">
+     C=Compassion(Welas Asih)                
+     H=Harmony(Harmoni)                         
+     O=Open-Mindedness (Keterbukaan Pikiran)        
+     N=Nobility (Keluhuran Budi)                 
+     G=Growth (Pertumbuhan)               
+    
+     D=Devotion(Bakti)
+     E=Emphaty(Empati)</p>
 <div class="flex justify-center">
 <svg class="animate-float" fill="none" height="120" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg">
 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
@@ -1223,7 +1223,7 @@
                                     <p class="text-xs text-gray-500">${record.gender}</p>
                                     <div class="attendance-cell justify-center space-x-2">
     
-    <button onclick="deleteAttendance(${index})" class="text-red-600 hover:underline text-sm">Hapus</button>
+    
 </div>
                                 </div>
                             </div>
@@ -1917,15 +1917,7 @@ document.getElementById("export-btn").addEventListener("click", function () {
     XLSX.writeFile(workbook, "absensi-chong-de-youth.xlsx");
 });
 </script>
-<script>
-document.getElementById("clear-btn").addEventListener("click", function () {
-    if (confirm("Yakin ingin menghapus semua data absensi?")) {
-        attendanceData = []; // hapus dari memori
-        document.getElementById("attendance-body").innerHTML = ""; // kosongkan tabel
-        alert("Semua data absensi telah dihapus.");
-    }
-});
-</script>
+
 <script>
 const SHEET_API = "https://script.google.com/macros/s/AKfycbwglWW1fJzJsjjjOLL9xMrAXGh4m0KsheYSyqYHFNv8e5-RAHwUpVx7HXWvUkjNMBj3lw/exec";
 
@@ -1988,21 +1980,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
-// Tambahkan fungsi Edit dan Delete
-attendanceData[index] = updatedRecord;
-        closeAttendanceModalFunc();
-        updateAttendanceTable();
-        updateAttendanceCounts();
-    };
-};
 
-
-window.deleteAttendance = function(index) {
-    if (confirm("Yakin ingin menghapus data ini?")) {
-        attendanceData.splice(index, 1); // hapus dari array data
-        updateAttendanceTable();         // render ulang tabel
-        updateAttendanceCounts();        // update tampilan statistik
-    }
 };
 
 function updateAttendanceCounts() {
@@ -2016,14 +1994,6 @@ function updateAttendanceCounts() {
     document.getElementById('total-absent').textContent = tidakHadir;
     document.getElementById('total-excused').textContent = izin;
 }</script>
-<script>
-    window.deleteAttendance = function(index) {
-      if (confirm("Yakin ingin menghapus data ini?")) {
-        attendanceData.splice(index, 1);
-        updateAttendanceTable();
-        updateAttendanceCounts();
-      }
-    }
-  </script>
+
 </body>
 </html>
