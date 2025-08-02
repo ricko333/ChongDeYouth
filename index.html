@@ -2,22 +2,28 @@
 
 <html lang="id">
 <head>
-    <head>
-  <meta charset="UTF-8">
-  <title>Absensi Chong De Youth</title>
-
-  <!-- Open Graph Meta -->
-  <meta property="og:title" content="Absensi Digital - Chong De Youth Medan" />
-  <meta property="og:description" content="Form absensi digital untuk Chong De Youth Medan." />
-  <meta property="og:image" content="https://ricko333.github.io/ChongDeYouth/images/chong_de_youth-removebg-preview.png" />
-  <meta property="og:url" content="https://ricko333.github.io/ChongDeYouth/" />
-  <meta property="og:type" content="website" />
-  </head>
+<head>
+<meta charset="utf-8"/>
+<title>Absensi Chong De Youth</title>
+<!-- Open Graph Meta -->
+<meta content="Absensi Digital - Chong De Youth Medan" property="og:title"/>
+<meta content="Form absensi digital untuk Chong De Youth Medan." property="og:description"/>
+<meta content="https://ricko333.github.io/ChongDeYouth/images/chong_de_youth-removebg-preview.png" property="og:image"/>
+<meta content="https://ricko333.github.io/ChongDeYouth/" property="og:url"/>
+<meta content="website" property="og:type"/>
+</head>
 </head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Absensi Digital - Chong De Youth</title>
-<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://cdn.tailwindcss.com">
+    function hapusData(index) {
+        if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+            attendanceData.splice(index, 1);
+            tampilkanHasilPencarian(attendanceData);
+        }
+    }
+    </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;family=Luckiest+Guy&amp;family=Bangers&amp;display=swap" rel="stylesheet"/>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -288,7 +294,6 @@
             background-color: white;
         }
     </style>
-</head>
 <body>
 <!-- Attendance Page -->
 <div id="attendance-page">
@@ -298,7 +303,7 @@
 <div class="flex items-center mb-4 md:mb-0">
 <div class="mr-4 w-16 h-16 flex items-center justify-center" id="logo-container">
 <img alt="Logo Chong De Youth" class="hidden max-w-full max-h-full" id="logo-preview"/>
-<svg class="h-10 w-10 text-blue-700" fill="none" id="default-logo" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+<svg class="h-20 w-20 text-blue-700" fill="none" id="default-logo" stroke="currentColor" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
 <path d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </div>
@@ -345,17 +350,6 @@
 <option value="Sidang Dharma">Sidang Dharma</option>
 <option value="Kelas Dharma">Kelas Dharma</option>
 </select>
-</div>
-</div>
-<div class="relative">
-<label class="block text-sm font-medium text-gray-700 mb-1" for="search">Cari Anggota</label>
-<div class="relative">
-<div class="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
-<svg aria-hidden="true" class="w-4 h-4 text-gray-500" fill="none" viewbox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-<path d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</div>
-<input class="block w-full p-2.5 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500" id="search" placeholder="Cari nama anggota..." type="search"/>
 </div>
 </div>
 </div>
@@ -434,7 +428,7 @@
 <div class="attendance-grid">
 <!-- Headers -->
 <div class="attendance-header">Daftar Kehadiran</div>
-<div class="attendance-header date-header">Kehadiran</div>
+<div class="attendance-header">Kehadiran</div>
 <div class="attendance-header">Kehadiran</div>
 <div class="attendance-header">Kehadiran</div>
 <div class="attendance-header">Kehadiran</div>
@@ -463,8 +457,6 @@
 <path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
 </svg>
 </button>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -652,23 +644,24 @@
 <!-- Ilustrasi -->
 <div class="bg-gradient-to-br from-blue-400 to-purple-500 rounded-xl shadow-md p-6 text-white">
 <h3 class="text-lg font-semibold mb-4">VALUE (NILAI) PELAJAR CHONG DE</h3>
-<p class="text-sm mb-4">
-     C=Compassion(Welas Asih)                
-     H=Harmony(Harmoni)                         
-     O=Open-Mindedness (Keterbukaan Pikiran)        
-     N=Nobility (Keluhuran Budi)                 
-     G=Growth (Pertumbuhan)               
-    
-     D=Devotion(Bakti)
-     E=Emphaty(Empati)</p>
+<ul class="text-sm mb-4 list-disc list-inside">
+<li><strong>C</strong> = Compassion (Welas Asih)</li>
+<li><strong>H</strong> = Harmony (Harmoni)</li>
+<li><strong>O</strong> = Open-Mindedness (Keterbukaan Pikiran)</li>
+<li><strong>N</strong> = Nobility (Keluhuran Budi)</li>
+<li><strong>G</strong> = Growth (Pertumbuhan)</li>
+<li><strong>D</strong> = Devotion (Bakti)</li>
+<li><strong>E</strong> = Emphaty (Empati)</li>
+</ul>
 <div class="flex justify-center">
-<svg class="animate-float" fill="none" height="120" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1" viewbox="0 0 24 24" width="150" xmlns="http://www.w3.org/2000/svg">
+<div class="mt-6 text-center">
+<img alt="Logo Chong De" class="w-28 h-auto mx-auto mt-6" src="https://ricko333.github.io/ChongDeYouth/logo-chongde.png"/>
+</div>
+</div>
 <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
 <circle cx="9" cy="7" r="4"></circle>
 <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
 <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-</svg>
-</div>
 </div>
 </div>
 </div>
@@ -797,9 +790,13 @@
 </svg>
 </button>
 </div>
-<div class="mb-4">
-<input class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5" id="members-search" placeholder="Cari anggota..." type="search"/>
+<div class="flex items-center mb-4">
+<input class="border border-gray-300 rounded px-3 py-1 w-full md:w-1/3 focus:outline-none" id="search" placeholder="Cari nama..." type="text"/>
+<button class="ml-2 px-4 py-1 bg-blue-500 text-white rounded hover:bg-blue-600" id="search-button">
+    Cari
+  </button>
 </div>
+<div class="text-red-500 mt-2" id="search-result"></div>
 <div class="space-y-2" id="all-members-list">
 <!-- Empty state -->
 <div class="flex items-center justify-center p-8 bg-gray-50 rounded-lg text-gray-500">
@@ -1096,7 +1093,7 @@
             // Add attendance form submission
             attendanceForm.addEventListener('submit', function(e) {
                 e.preventDefault();
-                
+
                 // Get form values
                 const name = document.getElementById('member-name').value;
                 const vihara = document.getElementById('vihara-input').value;
@@ -1119,6 +1116,7 @@
                 
                 const notes = document.getElementById('notes').value;
                 
+                
                 // Create attendance record
                 const attendanceRecord = {
                     name: name,
@@ -1130,7 +1128,7 @@
                     statusClass: statusClass,
                     notes: notes
                 };
-                
+                 kirimKeGoogleSheet(attendanceRecord);
                 // Add to appropriate array based on status
                 attendanceData.push(attendanceRecord);
                 if (statusClass === 'status-present') {
@@ -1178,7 +1176,7 @@
                 // Keep the headers
                 const headers = `
     <div class="attendance-header">Daftar Kehadiran</div>
-    <div class="attendance-header date-header">Kehadiran</div>
+    <div class="attendance-header">Kehadiran</div>
     <div class="attendance-header">Kehadiran</div>
     <div class="attendance-header">Kehadiran</div>
     <div class="attendance-header">Kehadiran</div>
@@ -1346,10 +1344,22 @@
             });
             
             // Search functionality
+            
             const searchInput = document.getElementById('search');
             
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.toLowerCase();
+                
+
+searchButton.addEventListener('click', function () {
+  const keyword = document.getElementById('search').value.toLowerCase();
+  const filtered = attendanceData.filter(record =>
+    record.name.toLowerCase().includes(keyword) ||
+    record.vihara.toLowerCase().includes(keyword) ||
+    (record.notes && record.notes.toLowerCase().includes(keyword))
+  );
+  tampilkanHasilPencarian(filtered);
+});
                 
                 // Filter attendance data
                 const filteredData = attendanceData.filter(record => 
@@ -1365,7 +1375,7 @@
                 // Keep the headers
                 const headers = `
                     <div class="attendance-header">Daftar Kehadiran</div>
-                    <div class="attendance-header date-header">Kehadiran</div>
+                    <div class="attendance-header">Kehadiran</div>
                     <div class="attendance-header">Kehadiran</div>
                     <div class="attendance-header">Kehadiran</div>
                     <div class="attendance-header">Kehadiran</div>
@@ -1908,7 +1918,18 @@ document.getElementById("export-btn").addEventListener("click", function () {
         "Status": item.status.replace(/✅|❌|📝/, "").trim(),
         "Catatan": item.notes || "-"
     }));
-
+// Hitung auto-width untuk setiap kolom termasuk header
+const keys = Object.keys(excelData[0]);
+const colWidths = keys.map((key, index) => {
+  const headerLength = key.length;
+  const maxCellLength = Math.max(
+    ...excelData.map(row => (row[key] ? row[key].toString().length : 0))
+  );
+  const maxLength = Math.max(headerLength, maxCellLength);
+  return { wch: Math.min(maxLength + 5, 40) }; // batasi maksimal 40
+});
+worksheet['!cols'] = co
+    worksheet['!cols'] = maxWidths;
     // Buat dan ekspor file Excel
     const worksheet = XLSX.utils.json_to_sheet(excelData);
     const workbook = XLSX.utils.book_new();
@@ -1916,7 +1937,6 @@ document.getElementById("export-btn").addEventListener("click", function () {
     XLSX.writeFile(workbook, "absensi-chong-de-youth.xlsx");
 });
 </script>
-
 <script>
 const SHEET_API = "https://script.google.com/macros/s/AKfycbwglWW1fJzJsjjjOLL9xMrAXGh4m0KsheYSyqYHFNv8e5-RAHwUpVx7HXWvUkjNMBj3lw/exec";
 
@@ -1980,7 +2000,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 });
 
-};
+;
 
 function updateAttendanceCounts() {
     const total = attendanceData.length;
@@ -1993,6 +2013,384 @@ function updateAttendanceCounts() {
     document.getElementById('total-absent').textContent = tidakHadir;
     document.getElementById('total-excused').textContent = izin;
 }</script>
+<script>
+  async function kirimKeGoogleSheet(data) {
+    const url = "https://script.google.com/macros/s/AKfycbzcaU9_fExhadWwnGqF7PGsxsT8v9CmJH18Y0XnEGT7_HyL0xtMuGmi8L-VZC8NMP2O-g/exec";
+    try {
+      const response = await fetch(url, {
+        method: "POST",
+        mode: "no-cors",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(data),
+      });
+      console.log("Data berhasil dikirim ke Google Sheets");
+    } catch (error) {
+      console.error("Gagal kirim ke Google Sheets", error);
+    }
+  }
+  let attendanceData = [];
 
-</body>
+document.addEventListener('DOMContentLoaded', function () {
+  const searchInput = document.getElementById('search');
+  const searchButton = document.getElementById('search-button');
+
+  if (searchInput) {
+    searchInput.addEventListener('input', function () {
+      const searchTerm = this.value.toLowerCase();
+      const filtered = attendanceData.filter(record =>
+        record.name.toLowerCase().includes(searchTerm) ||
+        record.vihara.toLowerCase().includes(searchTerm) ||
+        (record.notes && record.notes.toLowerCase().includes(searchTerm))
+      );
+      tampilkanHasilPencarian(filtered);
+    });
+  }
+
+  if (searchButton) {
+    searchButton.addEventListener('click', function () {
+      const keyword = searchInput.value.toLowerCase();
+      const filtered = attendanceData.filter(record =>
+        record.name.toLowerCase().includes(keyword) ||
+        record.vihara.toLowerCase().includes(keyword) ||
+        (record.notes && record.notes.toLowerCase().includes(keyword))
+      );
+      tampilkanHasilPencarian(filtered);
+    });
+  }
+});
+function tampilkanHasilPencarian(dataArray) {
+  const container = document.querySelector('.attendance-grid');
+  const notifikasi = document.getElementById('search-result');
+  container.innerHTML = '';
+  notifikasi.textContent = '';
+
+  if (dataArray.length === 0) {
+    notifikasi.textContent = '🔍 Tidak ada data ditemukan.';
+    return;
+  }
+
+  dataArray.forEach(record => {
+    const row = document.createElement('div');
+    row.className = 'attendance-row';
+    row.innerHTML = `
+      <div class="attendance-cell">${record.name}</div>
+      <div class="attendance-cell">${record.vihara}</div>
+      <div class="attendance-cell">${record.date}</div>
+      <div class="attendance-cell">${record.status}</div>
+      <div class="attendance-cell">${record.notes || '-'}</div>
+    `;
+    container.appendChild(row);
+  });
+}
+document.addEventListener('DOMContentLoaded', function () {
+  const input = document.getElementById('search');
+  const button = document.getElementById('search-button');
+
+  function cariData() {
+    const keyword = input.value.toLowerCase();
+    const hasil = attendanceData.filter(record =>
+      record.name.toLowerCase().includes(keyword)
+    );
+    tampilkanHasilPencarian(hasil);
+  }
+
+  button.addEventListener('click', cariData);
+
+  input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') {
+      cariData();
+    }
+  });
+
+  // tampilkan semua data awal saat pertama buka
+  tampilkanHasilPencarian(attendanceData);
+});
+
+
+  document.querySelectorAll(".delete-button").forEach((btn) => {
+    btn.addEventListener("click", function () {
+      const index = this.getAttribute("data-index");
+      if (index !== null) {
+        attendanceData.splice(index, 1);
+        tampilkanHasilPencarian(attendanceData);
+      }
+    });
+  });
+</script>
+<script>
+  function hapusData(index) {
+    if (confirm("Yakin ingin menghapus data ini?")) {
+      attendanceData.splice(index, 1);
+      renderAttendance(attendanceData);
+    }
+  }
+</script>
+<script>
+
+function tambahData() {
+  const name = document.getElementById("nama").value;
+  const vihara = document.getElementById("vihara").value;
+  const gender = document.getElementById("gender").value;
+  const date = document.getElementById("tanggal").value;
+  const status = document.getElementById("status").value;
+  const notes = document.getElementById("catatan").value;
+
+  const newData = { name, vihara, gender, date, status, notes };
+  attendanceData.push(newData);
+  tampilkanData();
+}
+
+function tampilkanData() {
+  const body = document.getElementById("attendance-body");
+  if (!body) return;
+  body.innerHTML = "";
+  attendanceData.forEach((data, index) => {
+    const row = document.createElement("div");
+    row.className = "grid grid-cols-6 gap-2 border-b p-2 items-center";
+    row.innerHTML = `
+      <div>${data.name}</div>
+      <div>${data.vihara}</div>
+      <div>${data.date}</div>
+      <div>${data.status}</div>
+      <div>${data.notes}</div>
+      <div><button onclick="hapusData(${index})" class="bg-red-500 text-white px-2 py-1 rounded">Hapus</button></div>
+    `;
+    body.appendChild(row);
+  });
+}
+
+function hapusData(index) {
+  attendanceData.splice(index, 1);
+  tampilkanData();
+}
+</script><div class="mt-4 space-y-2" id="attendance-body"></div><script>
+
+
+function tambahData() {
+  const name = document.getElementById("nama").value;
+  const vihara = document.getElementById("vihara").value;
+  const gender = document.getElementById("gender").value;
+  const date = document.getElementById("tanggal").value;
+  const status = document.getElementById("status").value;
+  const notes = document.getElementById("catatan").value;
+
+  const newData = { name, vihara, gender, date, status, notes };
+  attendanceData.push(newData);
+  tampilkanData();
+}
+
+function tampilkanData() {
+  const container = document.getElementById("attendance-body");
+  container.innerHTML = "";
+
+  attendanceData.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "grid grid-cols-6 gap-2 border-b p-2 items-center";
+    row.innerHTML = `
+      <div>${item.name}</div>
+      <div>${item.vihara}</div>
+      <div>${item.date}</div>
+      <div>${item.status}</div>
+      <div>${item.notes}</div>
+      <div><button onclick="hapusData(${index})" class="text-red-500 hover:underline">Hapus</button></div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function hapusData(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    attendanceData.splice(index, 1);
+    tampilkanData();
+  }
+}
+</script><script>
+
+
+function tambahData() {
+  const name = document.getElementById("nama").value;
+  const vihara = document.getElementById("vihara").value;
+  const gender = document.getElementById("gender").value;
+  const date = document.getElementById("tanggal").value;
+  const status = document.getElementById("status").value;
+  const notes = document.getElementById("catatan").value;
+
+  const newData = { name, vihara, gender, date, status, notes };
+  attendanceData.push(newData);
+  tampilkanData();
+
+  // Reset input setelah submit
+  document.getElementById("nama").value = '';
+  document.getElementById("vihara").value = '';
+  document.getElementById("gender").value = '';
+  document.getElementById("tanggal").value = '';
+  document.getElementById("status").value = '';
+  document.getElementById("catatan").value = '';
+}
+
+function tampilkanData() {
+  const container = document.getElementById("attendance-body");
+  container.innerHTML = "";
+
+  attendanceData.forEach((item, index) => {
+    const row = document.createElement("div");
+    row.className = "grid grid-cols-6 gap-2 border-b p-2 items-center";
+    row.innerHTML = `
+      <div>${item.name}</div>
+      <div>${item.vihara}</div>
+      <div>${item.date}</div>
+      <div>${item.status}</div>
+      <div>${item.notes}</div>
+      <div><button onclick="hapusData(${index})" class="text-red-500 hover:underline">Hapus</button></div>
+    `;
+    container.appendChild(row);
+  });
+}
+
+function hapusData(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    attendanceData.splice(index, 1);
+    tampilkanData();
+  }
+}
+
+
+
+function tambahBarisKehadiran(data, index) {
+  const tbody = document.querySelector("#daftarKehadiran tbody");
+  if (!tbody) return;
+
+  const tr = document.createElement("tr");
+  tr.innerHTML = `
+    <td>${index + 1}</td>
+    <td>${data.name || ""}</td>
+    <td>${data.vihara || ""}</td>
+    <td>${data.gender || ""}</td>
+    <td>${data.date || ""}</td>
+    <td>${data.status || ""}</td>
+    <td>${data.notes || ""}</td>
+  `;
+  tbody.appendChild(tr);
+}
+
+function updateTabelKehadiran() {
+  const tbody = document.querySelector("#daftarKehadiran tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+  attendanceData.forEach((data, index) => {
+    tambahBarisKehadiran(data, index);
+  });
+}
+
+
+
+
+function updateTabelKehadiran() {
+  const tbody = document.querySelector("#daftarKehadiran tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+  attendanceData.forEach((data, index) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${data.name || ""}</td>
+      <td>${data.vihara || ""}</td>
+      <td>${data.gender || ""}</td>
+      <td>${data.date || ""}</td>
+      <td>${data.status || ""}</td>
+      <td>${data.notes || ""}</td>
+      <td><button onclick="hapusData(${index})" class='text-red-500 underline'>Hapus</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function hapusData(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    attendanceData.splice(index, 1);
+    updateTabelKehadiran();
+  }
+}
+
+function simpanData() {
+  const data = {
+    name: document.getElementById("name").value,
+    vihara: document.getElementById("vihara").value,
+    gender: document.getElementById("gender").value,
+    date: document.getElementById("date").value,
+    status: document.getElementById("status").value,
+    notes: document.getElementById("notes").value
+  };
+  attendanceData.push(data);
+  updateTabelKehadiran();
+
+  document.getElementById("name").value = "";
+  document.getElementById("vihara").value = "";
+  document.getElementById("gender").value = "";
+  document.getElementById("date").value = "";
+  document.getElementById("status").value = "";
+  document.getElementById("notes").value = "";
+}
+
+
+</script><script>
+
+
+function updateTabelKehadiran() {
+  const tbody = document.querySelector("#daftarKehadiran tbody");
+  if (!tbody) return;
+  tbody.innerHTML = "";
+  attendanceData.forEach((data, index) => {
+    const tr = document.createElement("tr");
+    tr.innerHTML = `
+      <td>${index + 1}</td>
+      <td>${data.name || ""}</td>
+      <td>${data.vihara || ""}</td>
+      <td>${data.gender || ""}</td>
+      <td>${data.date || ""}</td>
+      <td>${data.status || ""}</td>
+      <td>${data.notes || ""}</td>
+      <td><button onclick="hapusData(${index})" class='text-red-500 underline'>Hapus</button></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function hapusData(index) {
+  if (confirm("Yakin ingin menghapus data ini?")) {
+    attendanceData.splice(index, 1);
+    updateTabelKehadiran();
+  }
+}
+
+function simpanData() {
+  const data = {
+    name: document.getElementById("name").value,
+    vihara: document.getElementById("vihara").value,
+    gender: document.getElementById("gender").value,
+    date: document.getElementById("date").value,
+    status: document.getElementById("status").value,
+    notes: document.getElementById("notes").value
+  };
+  attendanceData.push(data);
+  updateTabelKehadiran();
+
+  document.getElementById("name").value = "";
+  document.getElementById("vihara").value = "";
+  document.getElementById("gender").value = "";
+  document.getElementById("date").value = "";
+  document.getElementById("status").value = "";
+  document.getElementById("notes").value = "";
+}
+
+const simpanBtn = document.getElementById("simpan-btn");
+if (simpanBtn) simpanBtn.onclick = simpanData;
+</script><script>
+window.onload = function () {
+  const simpanBtn = document.getElementById("simpan-btn");
+  if (simpanBtn) simpanBtn.onclick = simpanData;
+};
+</script></body>
 </html>
