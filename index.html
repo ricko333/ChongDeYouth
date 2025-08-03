@@ -16,14 +16,7 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Absensi Digital - Chong De Youth</title>
-<script src="https://cdn.tailwindcss.com">
-    function hapusData(index) {
-        if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
-            attendanceData.splice(index, 1);
-            tampilkanHasilPencarian(attendanceData);
-        }
-    }
-    </script>
+
 
 <script src="https://cdn.sheetjs.com/xlsx-0.20.0/package/dist/xlsx.full.min.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&amp;family=Luckiest+Guy&amp;family=Bangers&amp;display=swap" rel="stylesheet"/>
@@ -2384,5 +2377,13 @@ window.onload = function () {
   const simpanBtn = document.getElementById("simpan-btn");
   if (simpanBtn) simpanBtn.onclick = simpanData;
 };
+    <script src="https://cdn.tailwindcss.com">
+    function hapusData(index) {
+        if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
+            attendanceData.splice(index, 1);
+            tampilkanHasilPencarian(attendanceData);
+        }
+    }
+    </script>
 </script></body>
 </html>
