@@ -2377,13 +2377,18 @@ window.onload = function () {
   const simpanBtn = document.getElementById("simpan-btn");
   if (simpanBtn) simpanBtn.onclick = simpanData;
 };
-    <script src="https://cdn.tailwindcss.com">
+    <!-- Memuat Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Kode JavaScript kustom -->
+<script>
     function hapusData(index) {
         if (confirm("Apakah Anda yakin ingin menghapus data ini?")) {
             attendanceData.splice(index, 1);
             tampilkanHasilPencarian(attendanceData);
         }
     }
-    </script>
+        <button onclick="hapusData(0)" class="bg-red-500 text-white px-2 py-1 rounded">Hapus</button>
+</script>
 </script></body>
 </html>
